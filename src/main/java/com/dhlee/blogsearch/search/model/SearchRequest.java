@@ -9,6 +9,9 @@ public class SearchRequest {
 	private int page;
 	private int size;
 
+	private SearchRequest() {
+	}
+
 	public SearchRequest(String query) {
 		this.query = query;
 	}
