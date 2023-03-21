@@ -7,7 +7,7 @@
   - 검색 대상 API 별 엔진(연결정보 관리), 파라미터, 결과 추가 필요
   - 트래픽이 많은 상황을 대비해 블로그 검색 API는 Embedded Redis를 활용하여 로컬 캐시 적용하여 요청을 최소화
 
-
+ 
 #### Request
 ```bash
 curl -X GET http://localhost:8080/search/blog?query=테스트&page=1&size=3&sort=accuracy
