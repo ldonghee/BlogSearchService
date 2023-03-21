@@ -73,3 +73,14 @@ curl -X GET http://localhost:8080/rank/keywordList
     ]
 }
 ```
+
+
+## jar 파일 다운로드 링크
+
+- **경로: /jars/blog-search-0.0.1-SNAPSHOT.jar**
+  https://github.com/ldonghee/BlogSearchService/tree/main/jars/blog-search-0.0.1-SNAPSHOT.jar
+
+
+  ```bash
+  java -jar blog-search-0.0.1-SNAPSHOT
+  ```
