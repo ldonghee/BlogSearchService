@@ -47,8 +47,13 @@ curl -X GET http://localhost:8080/search/blog?query=테스트&page=1&size=3&sort
 
 ### 2. 인기 검색어 목록 제공
 - h2 인메모리 데이터 베이스에 JPA 이용하여 기능 구현
-- PESSIMISTIC_FORCE_INCREMENT 사용하여 타 트랜잭션 읽기 쓰기 Lock, 동시성 제어
-
+- Redis와 Schedule을 이용한 동시성 제어 
+  - Redis RedisTemplate 사용한 Hash Key/Value 적용
+    - RedisTemplate increment 메서드를 사용해 Key 에 대한 Value 증가
+    - Key : 검색어, Value : 검색한 횟수
+  - Embedded Schedule 사용
+    - 5분에 한번 Redis -> DB로 배치 수행
+    
 #### Request
 ```bash
 curl -X GET http://localhost:8080/rank/keywordList
@@ -79,6 +84,7 @@ curl -X GET http://localhost:8080/rank/keywordList
 
 - **경로: /jars/blog-search-0.0.1-SNAPSHOT.jar**
   https://github.com/ldonghee/BlogSearchService/tree/main/jars/blog-search-0.0.1-SNAPSHOT.jar
+- PORT : 8080
 
 
   ```bash
