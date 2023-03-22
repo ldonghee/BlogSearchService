@@ -63,7 +63,9 @@ curl -X GET http://localhost:8080/search/blog?query=테스트&page=1&size=3&sort
     - Key : 검색어, Value : 검색한 횟수
   - Embedded Schedule 사용
     - 5분에 한번 Redis -> DB로 배치 수행
-    
+
+<br/>
+
 #### Request
 ```bash
 curl -X GET http://localhost:8080/rank/keywordList
