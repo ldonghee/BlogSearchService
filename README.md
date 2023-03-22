@@ -7,11 +7,20 @@
   - 검색 대상 API 별 엔진(연결정보 관리), 파라미터, 결과 추가 필요
   - 트래픽이 많은 상황을 대비해 블로그 검색 API는 Embedded Redis를 활용하여 로컬 캐시 적용하여 요청을 최소화
 
- 
+ <br/>
+
 #### Request
 ```bash
 curl -X GET http://localhost:8080/search/blog?query=테스트&page=1&size=3&sort=accuracy
 ```
+| Name  | Type      | Description                                                  | Required |
+|:------| :-------- | :----------------------------------------------------------- | :------- |
+| query | `String`  | 검색 키워드                                                  | O        |
+| sort  | `String`  | 정렬 방식, accuracy(정확도순) 또는 recency(최신순), 기본 값 accuracy | X        |
+| page  | `Integer` | 결과 페이지 번호, 1~50 사이의 값, 기본 값 1                  | X        |
+| size  | `Integer` | 한 페이지에 보여질 문서 수, 1~50 사이의 값, 기본 값 10       | X        |
+
+<br />
 
 #### Response
 ```json
@@ -44,6 +53,7 @@ curl -X GET http://localhost:8080/search/blog?query=테스트&page=1&size=3&sort
 }
 ```
 <br/>
+<br/>
 
 ### 2. 인기 검색어 목록 제공
 - h2 인메모리 데이터 베이스에 JPA 이용하여 기능 구현
@@ -58,6 +68,8 @@ curl -X GET http://localhost:8080/search/blog?query=테스트&page=1&size=3&sort
 ```bash
 curl -X GET http://localhost:8080/rank/keywordList
 ```
+
+<br/>
 
 #### Response
 ```json
@@ -79,6 +91,8 @@ curl -X GET http://localhost:8080/rank/keywordList
 }
 ```
 
+<br/>
+<br/>
 
 ## jar 파일 다운로드 링크
 
