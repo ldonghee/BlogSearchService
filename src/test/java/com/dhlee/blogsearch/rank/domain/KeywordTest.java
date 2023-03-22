@@ -20,4 +20,17 @@ public class KeywordTest {
 		// then
 		assertThat(keyword.getCount()).isEqualTo(2);
 	}
+
+	@Test
+	@DisplayName("카운트 변경 테스트")
+	public void update() {
+		// given
+		Keyword keyword = new Keyword("TEST");
+
+		// when
+		keyword.setCount(10);
+
+		// then
+		assertThat(keyword.getCount()).isEqualTo(10);
+	}
 }

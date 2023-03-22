@@ -1,6 +1,7 @@
 package com.dhlee.blogsearch.common.config.redis;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +17,7 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -77,4 +79,14 @@ public class RedisCacheConfig {
 				.withInitialCacheConfigurations(cacheConfigurationMap)
 				.build();
 	}
+
+	@Bean
+	public RedisTemplate<String, Integer> redisHashTemplate() {
+		RedisTemplate<String, Integer> redisTemplate = new RedisTemplate<>();
+		redisTemplate.setConnectionFactory(redisConnectionFactory());
+		redisTemplate.setHashKeySerializer(new StringRedisSerializer(StandardCharsets.UTF_8));
+		redisTemplate.setHashValueSerializer(new StringRedisSerializer(StandardCharsets.UTF_8));
+		return redisTemplate;
+	}
+
 }
