@@ -88,5 +88,5 @@ curl -X GET http://localhost:8080/rank/keywordList
 
 
   ```bash
-  java -jar blog-search-0.0.1-SNAPSHOT
+  java -jar blog-search-0.0.1-SNAPSHOT.jar
   ```
