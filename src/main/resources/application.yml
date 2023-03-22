@@ -25,7 +25,3 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
-
-rank:
-  service:
-    url: http://localhost:8080/rank/keyword
